@@ -1,0 +1,51 @@
+flowchart LR
+    StudyDesign((Study Designs)) --> AssignExposure{Did investigators assign exposure?}
+    AssignExposure -->|No| Observational[Observational]
+    AssignExposure -->|Yes| Experimental[Experimental]
+
+
+    Observational --> Population[Population-based]
+    Observational --> Individual[Individual-based]
+
+    Population --> Ecological[Ecological]
+    Ecological --> |Useful for| EcologicalUseful[Description of population-level characteristics]
+    Ecological --> |Limitation| EcologicalLimitation[Characteristics are attributed to the whole group, not individuals]
+    Ecological --> |Example| EcologicalExample[Correlation between air pollution levels and asthma rates in different cities]
+
+    Individual --> TimeOutcome{When was the outcome determined?}
+    TimeOutcome -->|After the exposure| CaseControl[Case-Control]
+    CaseControl --> CaseControlDesign[Design]
+    CaseControlDesign --> Cases["Cases (with disease)"]
+    Cases --> CasesExposed[Exposed]
+    Cases --> CasesNotExposed[Non-Exposed]
+    CaseControlDesign --> Controls["Controls (without disease)"]
+    Controls --> ControlsExposed[Exposed]
+    Controls --> ControlsNotExposed[Non-Exposed]
+    CaseControl --> |Useful for| CaseControlUseful[Studying risk factors and etiologies of rare diseases]
+    CaseControl --> |Limitation| CaseControlLimitation[Can suggest causality but cannot prove it]
+    CaseControl --> |Limitation| CaseControlLimitation2[Cannot estimate prevalence of a disease in the population]
+    CaseControl --> |Example| CaseControlExample[Association between smoking and lung cancer in a group of patients with lung cancer and a group without lung cancer]
+    TimeOutcome --> |At the same time as the exposure| CrossSectional[Cross-Sectional]
+    CrossSectional --> |Useful for| CrossSectionalUseful[Assessing prevalence of a disease in a population at a specific point in time]
+    CrossSectional --> |Limitation| CrossSectionalLimitation[Cannot establish temporal relationship between exposure and outcome]
+    CrossSectional --> |Example| CrossSectionalExample["Prevalence of hypertension (the outcome) in a sample of adults in a particular region at a single point in time. The researchers would measure blood pressure levels in each participant and gather information on other factors that could influence blood pressure, such as age, sex, weight, and lifestyle habits (exposure)".]
+    TimeOutcome -->|Before the exposure| Cohort[Cohort]
+    Cohort --> CohortDesign[Design]
+    CohortDesign --> Exposed[Exposed/Risk Factor Present]
+    Exposed --> ExposedOutcome[Disease/outcome]
+    Exposed --> ExposedNotOutcome[No disease/outcome]
+    CohortDesign --> NonExposed[Non-Exposed/Risk Factor Absent]
+    NonExposed --> NonExposedOutcome[Disease/outcome]
+    NonExposed --> NonExposedNotOutcome[No disease/outcome]
+    Cohort --> PastRecords{Past records are accurate and reliable?}
+    PastRecords --> |No|CohortProspective[Prospective]
+    PastRecords --> |Yes|CohortRetrospective[Retrospective]
+    CohortProspective --> |Limitation| CohortProspectiveLimitation[Time-consuming and expensive]
+    Cohort --> |Useful for| CohortUseful[Establishing temporal relationship between exposure and outcome]
+    Cohort --> |Useful for| CohortUseful2[Suspected exposure is known and rare, and the incidence of the outcome is high in the exposed group]
+    Cohort --> |Limitation| CohortLimitation[Can infer and interpret causality but cannot prove it]
+    Cohort --> |Limitation| CohortLimitation2[Drop-outs]
+    Cohort --> |Example| CohortExample["A study that follows a group of individuals over time to assess the relationship between their dietary habits (exposure) and the development of cardiovascular disease (outcome). The researchers would collect data on participants' diets at baseline and then track their health outcomes over several years."]
+
+
+    
