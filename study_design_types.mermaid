@@ -13,7 +13,7 @@ flowchart LR
     Ecological --> |Example| EcologicalExample[Correlation between air pollution levels and asthma rates in different cities]
 
     Individual --> TimeOutcome{When was the outcome determined?}
-    TimeOutcome -->|After the exposure| CaseControl[Case-Control]
+    TimeOutcome -->|Before the exposure| CaseControl[Case-Control]
     CaseControl --> CaseControlDesign[Design]
     CaseControlDesign --> Cases["Cases (with disease)"]
     Cases --> CasesExposed[Exposed]
@@ -29,7 +29,7 @@ flowchart LR
     CrossSectional --> |Useful for| CrossSectionalUseful[Assessing prevalence of a disease in a population at a specific point in time]
     CrossSectional --> |Limitation| CrossSectionalLimitation[Cannot establish temporal relationship between exposure and outcome]
     CrossSectional --> |Example| CrossSectionalExample["Prevalence of hypertension (the outcome) in a sample of adults in a particular region at a single point in time. The researchers would measure blood pressure levels in each participant and gather information on other factors that could influence blood pressure, such as age, sex, weight, and lifestyle habits (exposure)".]
-    TimeOutcome -->|Before the exposure| Cohort[Cohort]
+    TimeOutcome -->|After the exposure| Cohort[Cohort]
     Cohort --> CohortDesign[Design]
     CohortDesign --> Exposed[Exposed/Risk Factor Present]
     Exposed --> ExposedOutcome[Disease/outcome]
